@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const voteSchema = new Schema(
+// vote schema, no field is required
+export const voteSchema = new Schema(
   {
     mbti: {
       type: String,
@@ -19,8 +20,4 @@ const voteSchema = new Schema(
   { timestamps: true }
 );
 
-const Vote = mongoose.model("Vote", voteSchema);
-module.exports = {
-  voteSchema,
-  vote: Vote,
-};
+export const Vote = mongoose.model("Vote", voteSchema);
