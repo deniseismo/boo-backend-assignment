@@ -1,10 +1,11 @@
-const Profile = require("../models/profile");
+import Profile from "../models/profile.js";
 
-const profile_details = (req, res) => {
+// a controller for handling profile details, return a profile by id
+export const profile_details = (req, res) => {
   const id = req.params.id;
   Profile.findById(id)
     .then((result) => {
-      res.render("profile/details", {
+      res.render("profile/profile_template", {
         title: "Profile details",
         profile: result,
       });
@@ -14,6 +15,16 @@ const profile_details = (req, res) => {
     });
 };
 
-module.exports = {
-  profile_details,
+// a controller for handling creating profiles
+export const create_profile = (req, res) => {
+  const profile = new Profile(req.body);
+
+  profile
+    .save()
+    .then((result) => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
