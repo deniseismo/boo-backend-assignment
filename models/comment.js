@@ -1,13 +1,16 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const { voteSchema } = require("./vote");
+import mongoose from "mongoose";
+import { voteSchema } from "./vote.js";
 
+const Schema = mongoose.Schema;
+
+// comment schema (with an embedded vote)
 const commentInfoSchema = new Schema(
   {
     body: {
       type: String,
       required: true,
     },
+    // vote is optional
     vote: {
       type: voteSchema,
       required: false,
@@ -17,4 +20,4 @@ const commentInfoSchema = new Schema(
 );
 
 const CommentInfo = mongoose.model("Comment", commentInfoSchema);
-module.exports = CommentInfo;
+export default CommentInfo;
