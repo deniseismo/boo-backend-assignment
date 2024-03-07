@@ -1,7 +1,7 @@
-const CommentInfo = require("../models/profile");
+import CommentInfo from "../models/comment.js";
 
 // a controller for handling commenting and voting on Boo
-const addCommentAndVote = (req, res) => {
+export const addCommentAndVote = (req, res) => {
   const commentInfo = new CommentInfo(req.body);
 
   commentInfo
@@ -12,8 +12,4 @@ const addCommentAndVote = (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-};
-
-module.exports = {
-  addCommentAndVote,
 };
