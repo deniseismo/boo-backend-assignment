@@ -1,8 +1,10 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
+// profile schema
 const profileSchema = new Schema(
   {
+    // only name is required
     name: {
       type: String,
       required: true,
@@ -24,7 +26,7 @@ const profileSchema = new Schema(
       required: false,
     },
     tritype: {
-      type: String,
+      type: Number,
       required: false,
     },
     socionics: {
@@ -50,4 +52,4 @@ const profileSchema = new Schema(
 );
 
 const Profile = mongoose.model("Profile", profileSchema);
-module.exports = Profile;
+export default Profile;
