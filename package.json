@@ -1,16 +1,26 @@
 {
-  "name": "server",
+  "name": "boo-dating-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend Engineer Test",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "set NODE_ENV=test && mocha --timeout 60000"
   },
   "keywords": [],
-  "author": "",
+  "author": "Denis Kostarev",
   "license": "ISC",
   "dependencies": {
+    "chai": "^5.1.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "mocha": "^10.3.0",
+    "mongodb-memory-server": "^9.1.6",
+    "mongoose": "^8.2.1",
+    "supertest": "^6.3.4"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^4.2.0",
+    "typescript": "^5.4.2"
+  },
+  "type": "module"
 }
