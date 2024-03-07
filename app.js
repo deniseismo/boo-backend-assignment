@@ -3,6 +3,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import profileRoutes from "./routes/profileRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
 
 const app = express();
 
@@ -34,5 +35,8 @@ if (process.env.NODE_ENV !== "test") {
 
 // register profile routes
 app.use("/profile", profileRoutes);
+
+// comments api
+app.use("/api/comment", commentRoutes);
 
 export default app;
