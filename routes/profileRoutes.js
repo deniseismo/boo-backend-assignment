@@ -1,9 +1,17 @@
 "use strict";
 
-const express = require("express");
+import express from "express";
+import {
+  profile_details,
+  create_profile,
+} from "../controllers/profileController.js";
+
 const router = express.Router();
-const profileController = require("../controllers/profileController");
 
-router.get("/:id", profileController.profile_details);
+// a route to get profile by id
+router.get("/:id", profile_details);
 
-module.exports = router;
+// a route for creating profiles
+router.post("/create", create_profile);
+
+export default router;
